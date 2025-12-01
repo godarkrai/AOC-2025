@@ -17,7 +17,7 @@ for i in input:
     elif x == 0:
         crossed_zero += 1
     else:
-        crossed_zero += ((-starting) % 100 + abs(amount)) // 100
+        crossed_zero += ((100-starting) % 100 + abs(amount)) // 100
     new_pos = x % 100
     starting = new_pos
     if ( starting == 0 ):
