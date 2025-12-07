@@ -7,26 +7,19 @@ tachyon = []
 for line in lines:
     tachyon.append(list(line))
 
-starting_point = tuple()
 splitter_locations = set()
-max_splitter_location = float('-inf')
 first_splitter = None
 for i, t in enumerate(tachyon):
     for j, cell in enumerate( t ):
-        if cell == 'S':
-            starting_point = (i, j)
-            continue
         if cell == '^':
             splitter_locations.add((i,j))
             if first_splitter is None:
                 first_splitter = (i,j)
-            max_splitter_location = max(max_splitter_location, i)
 
 total_splits = 0
 splitted = set()
-j = starting_point[1]
 points = deque()
-points.append((starting_point[0]+2, starting_point[1]))
+points.append(first_splitter)
 while points:
     x, y = points.popleft()
     if ( x,y ) in splitter_locations:
