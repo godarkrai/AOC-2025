@@ -53,8 +53,6 @@ print("Part 1:", total_splits) # Part 1 1667
 # basically traversing a tree!??
 # root = first splitter
 
-timelines = 0
-
 def find_next_splitter(x,y):
     for nx in range(x + 2, len(tachyon), 2):
         if (nx, y) in splitter_locations:
