@@ -27,12 +27,7 @@ print("Part 1:", ans) # Part 1: 764
 # for part 2 create 3 separate dfs
 # svr->fft fft->dac dac->out
 # svr->dac dac->fft fft->out
-total = solve( 'svr', 'fft' )
-total *= solve( 'fft', 'dac' )
-total *= solve( 'dac', 'out' )
+total = solve( 'svr', 'fft' ) * solve( 'fft', 'dac' ) * solve( 'dac', 'out' )
+total += solve( 'svr', 'dac' ) * solve( 'dac', 'fft' ) * solve( 'fft', 'out' )
 
-total2 = solve( 'svr', 'dac' )
-total2 *= solve( 'dac', 'fft' )
-total2 *= solve( 'fft', 'out' )
-
-print( "Part 2:", total + total2 ) # Part 2: 462444153119850
+print( "Part 2:", total ) # Part 2: 462444153119850
